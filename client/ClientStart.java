@@ -22,12 +22,17 @@ public class ClientStart {
     public void runClient() throws IOException {
 
         ClientRunnable clientRun = new ClientRunnable(socket);
-        new Thread(clientRun).start(); //watek obsługujacy powiadomienia od serwera
+        new Thread(clientRun).start();
 
-        while (true){
-            if (clientName.equals("empty")) {  setClientName(); }
-            else if (userInput.equals("0")) { closeConnection(); break;  }
-            else { modifyVisit(); }
+        while (true) {
+            if (clientName.equals("empty")) {
+                setClientName();
+            } else if (userInput.equals("0")) {
+                closeConnection();
+                break;
+            } else {
+                modifyVisit();
+            }
         }
         closeAll();
     }
@@ -38,11 +43,11 @@ public class ClientStart {
         scanner.close();
     }
 
-    public void setClientName(){
+    public void setClientName() {
         System.out.println("Podaj imie");
         userInput = scanner.nextLine();
         clientName = userInput;
-        output.println(userInput); //wysyła imie na serwer
+        output.println(userInput);
     }
 
     public void closeConnection() throws IOException {
@@ -55,7 +60,7 @@ public class ClientStart {
         System.out.println("Wybierz usluge: \n" + "1 - Umow \n" + "2 - Odwolaj \n" + "0 - Wyjdz \n");
         userInput = scanner.nextLine();
         output.println(userInput);
-        if(userInput.equals("1") || userInput.equals("2")){
+        if (userInput.equals("1") || userInput.equals("2")) {
             System.out.println("Podaj godzine: ");
             output.println(scanner.nextLine());
             String uinput = input.readLine();

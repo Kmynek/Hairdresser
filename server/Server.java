@@ -8,12 +8,12 @@ public class Server {
 
         ArrayList<ServerThread> threadList = new ArrayList<>();
         Hairdresser timetable = new Hairdresser();
-        try (ServerSocket serversocket = new ServerSocket(5000)){
-            while(true) {
+        try (ServerSocket serversocket = new ServerSocket(5000)) {
+            while (true) {
                 Socket socket = serversocket.accept();
                 ServerThread serverThread = new ServerThread(socket, threadList, timetable);
-                //starting the thread
-                threadList.add(serverThread); 
+
+                threadList.add(serverThread);
                 serverThread.start();
             }
         } catch (Exception e) {

@@ -19,8 +19,8 @@ public class HairdreserClient {
         return true;
     }
 
-    public boolean validateHour(int hour){
-        return (hour>=10 && hour<18);
+    public boolean validateHour(int hour) {
+        return (hour >= 10 && hour < 18);
     }
 
     public String getName() {

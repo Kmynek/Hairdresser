@@ -12,13 +12,13 @@ public class Client {
 
         try {
             Socket socket = new Socket("localhost", 5000);
-            BufferedReader input = new BufferedReader( new InputStreamReader(socket.getInputStream()));
-            PrintWriter output = new PrintWriter(socket.getOutputStream(),true);
+            BufferedReader input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            PrintWriter output = new PrintWriter(socket.getOutputStream(), true);
 
             ClientStart clientStart = new ClientStart(socket, input, output);
             clientStart.runClient();
-            
-        } catch(IOException e){
+
+        } catch (IOException e) {
             e.printStackTrace();
         }
 
